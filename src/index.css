@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  /* add vertical breathing room */
+  padding-block: 32px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Resume-specific layout styles to match provided design */
+.resume-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 8px;
+  /* stronger layered shadow to make the card 'pop' */
+  box-shadow: 0 10px 25px rgba(16,24,40,0.12), 0 4px 8px rgba(16,24,40,0.06);
+  padding: 36px 44px;
+  color: #222;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.resume-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(16,24,40,0.18), 0 10px 20px rgba(16,24,40,0.08);
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.resume-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #555;
+}
+
+.resume-contact {
+  text-align: right;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.header-divider {
+  height: 8px;
+  margin: 18px 0 22px;
+  border-top: 6px solid #666;
+}
+
+.summary-block {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.summary-title {
+  font-family: 'Times New Roman', serif;
+  letter-spacing: 3px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.summary-text {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #444;
+  line-height: 1.6;
+}
+
+.columns {
+  display: block;
+  gap: 0;
+  position: relative;
+  padding-top: 0;
+}
+
+/* removed vertical divider for single-column layout */
+
+.col-left, .col-right { padding: 0; }
+
+.section-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin: 0 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #ccc;
+}
+
+.list-tight { margin: 0; padding-left: 1.1em; color:#444; }
+.list-tight li { margin-bottom: 6px; }
+
+footer.resume-footer { margin-top: 26px; border-top: 1px solid #e5e5e5; padding-top: 14px; color:#666; text-align:center; }
+
+@media (max-width: 768px) {
+  .columns { grid-template-columns: 1fr; }
+  .columns::before { display: none; }
+  .resume-header { flex-direction: column; align-items: flex-start; }
+  .resume-contact { text-align: left; margin-top: 8px; }
+}
+
+
+/* Resume custom tweaks */
+.name-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.12em;
+  display: inline-block;
+  border-bottom: 3px solid #d1d5db; /* subtle underline */
+  padding-bottom: 0.25rem;
+}
+
+.contact-line {
+  text-align: right;
+  color: #4b5563; /* text-gray-600 */
+}
+
+.section-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+}
+
+.section-underline {
+  height: 2px;
+  width: 5.5rem;
+  background: #9ca3af; /* gray-400 */
+  margin: 0.5rem auto 0;
+}
+
+/* Slightly reduce bullet size to match the print-like layout */
+ul.resume-list {
+  list-style-type: disc;
+  margin-left: 1rem;
+}
+
